@@ -73,3 +73,13 @@ class HCSR04:
         # 0.034320 cm/us that is 1cm each 29.1us
         cms = (pulse_time / 2) / 29.1
         return cms
+    
+    def distance_m(self):
+        """
+        Get the distance in meters with floating point operations.
+        It returns a float
+        """
+        pulse_time = self._send_pulse_and_wait()
+        
+        ms = ((pulse_time / 2) / 29.1) /100
+        return ms
